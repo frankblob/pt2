@@ -1,0 +1,10 @@
+<%= menu %>
+	<h3>Posts</h3>
+		<ul>
+		<% @posts.each do |post| %>
+			<p><a href="<%= url '/' + topic + post.id.to_s %>"><%= post.title %></a><br/>
+			<%= post.body[0..100] + "..." %></p>
+		<% end %>
+		<p></p>
+<a href="<%= url '/new' %>">New post</a>
+<p></p>

@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+	<html lang="EN">
+  <head>
+  	<meta charset="UTF-8">
+    <title><%= ENV['SITENAME'] %></title>
+  </head>
+  <body style="margin-left: auto; margin-right: auto;width: 70%">
+  <div style="text-align:left;width: 40%;display: inline-block">
+  <h1><%= ENV['SITENAME'] %></h1></div>
+  <div style="text-align:right;width: 59%;display: inline-block">
+  	<a href="/">Home</a> | <a href="/signup">Sign up</a> | <a href="/login">Log in</a> | <a href="/noway">No way (app) </a> | <a href="/forum">Forum</a> | <a href="/search">Search controller</a> | <a href="/search/noway">No way (search)</a> | <a href="/logout">Log out</a></div>
+
+  	<%= yield %>
+		
+  </body>
+</html>

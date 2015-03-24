@@ -1,0 +1,9 @@
+<h1>Forum</h1>
+	<h3>Topics</h3>
+		<ul>
+		<% @topics.each do |topic| %>
+			<p><a href="<%= url '/' + topic.id.to_s %>"><%= topic.title %></a><br/>
+			<%= topic.body[0..100] + "..." %></p>
+		<% end %>
+		</ul>
+		<p></p>
