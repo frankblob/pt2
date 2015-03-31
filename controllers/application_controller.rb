@@ -36,16 +36,13 @@ class ApplicationController < Sinatra::Base
   end  
 
   get '/login' do
-    puts env["HTTP_REFERER"]
-    puts params[:return]
     erb :login
   end
 
   post "/login" do
     if login(User, params[:login], params[:password])
       remember(authenticated(User)) if params[:remember_me]
-      puts params[:return] # nil
-      redirect to params[:return] || "/"
+      redirect to params[:redirect] || "/"
     else
       redirect "/login"
     end
