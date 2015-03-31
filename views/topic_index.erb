@@ -2,9 +2,10 @@
 	<h3>Posts</h3>
 		<ul>
 		<% @posts.each do |post| %>
-			<p><a href="<%= url '/' + topic + post.id.to_s %>"><%= post.title %></a><br/>
-			<%= post.body[0..100] + "..." %></p>
+			<p><a href="<%= url '/posts/' + post.id.to_s %>"><%= post.title %></a><br/>
+			<%= post.body[0..100] + "..." %><br />
+			Published in <a href="<%= url '/topic/' + post.topic_id.to_s %>"><%= post.topic.title.split(' ')[0] %></a></p>
 		<% end %>
 		<p></p>
-<a href="<%= url '/new' %>">New post</a>
+<a href="<%= url 'posts/new' %>">New post</a>
 <p></p>

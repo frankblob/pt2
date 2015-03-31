@@ -1,7 +1,6 @@
 <h1>Add new post</h1>
-<form action="<%= url '/' %>" method="POST">
-<input type='text' name='post[title]' placeholder="Title"><br/>
-<textarea name='post[body]'>Text</textarea><br/>
-<input type='submit' value='Add post'>
-</form>
+	<form action="<%= url '/' %>" method="POST">
+		<%= erb :_post_form %>
+		<input type='submit' value='Add post'>
+	</form>
 <p></p>

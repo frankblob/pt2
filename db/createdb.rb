@@ -3,8 +3,6 @@ DB.create_constraint_validations_table
 
 #uncomment models/init.rb to enable auto-sync with DB contraints
 
-# Create a new User table with columns of
-# id, name, email and password_digest.
 DB.create_table :users do 
   primary_key :id
   column :email, String, null: false
@@ -24,8 +22,7 @@ end
 DB.create_table :topics do
   primary_key :id
   String :title, null: false
-  String :body, null: false
-  Integer :user_id
+  foreign_key :user_id, :users
   DateTime :created_at
   DateTime :updated_at
 end
@@ -34,8 +31,8 @@ DB.create_table :posts do
   primary_key :id
   String :title, null: false
   String :body, text: true, null: false
-  Integer :topic_id, null: false
-  Integer :user_id
+  foreign_key :topic_id, :topics, null: false
+  foreign_key :user_id, :users
   DateTime :created_at
   DateTime :updated_at
   index :topic_id
@@ -44,8 +41,9 @@ end
 DB.create_table :comments do
   primary_key :id
   String :body, text: true, null: false
-  Integer :post_id, null: false
-  Integer :user_id
+  foreign_key :post_id, :posts, null: false
+  foreign_key :user_id, :users
+#  foreign_key :comment_id, :comments
   DateTime :created_at
   DateTime :updated_at
   index :post_id

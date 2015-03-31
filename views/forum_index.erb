@@ -1,9 +1,12 @@
 <h1>Forum</h1>
-	<h3>Topics</h3>
+	<h3>Recent posts</h3>
 		<ul>
-		<% @topics.each do |topic| %>
-			<p><a href="<%= url '/' + topic.id.to_s %>"><%= topic.title %></a><br/>
-			<%= topic.body[0..100] + "..." %></p>
+		<% @posts.each do |post| %>
+			<p><a href="<%= url '/posts/' + post.id.to_s %>"><%= post.title %></a><br/>
+			<%= post.body[0..100] + "..." %><br/>
+			Published in <a href="<%= url '/topic/' + post.topic_id.to_s %>"><%= post.topic.title.split(' ')[0] %></a></p>
 		<% end %>
 		</ul>
+		<p></p>
+		<a href="<%= url 'posts/new' %>">New post</a>
 		<p></p>

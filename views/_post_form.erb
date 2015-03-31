@@ -1,0 +1,11 @@
+<input type='text' name='post[title]' placeholder="<%= @post ? @post.title : "Title" %>"><br/>
+<textarea name='post[body]'><%= @post ? @post.body : "Text" %></textarea><br/>
+<input type='hidden' name='post[user_id]' value="<%= authenticated(User) %>">
+<select name="post[topic_id]">
+		<option>Select category for this post</option>
+    <option value="2">General discussion and questions</option>
+    <option value="3">Feature and improvement ideas</option>
+    <option value="4">Bugs, problems and errors</option>
+    <option value="5">Developers and refactoring</option>
+  </select>
+  
